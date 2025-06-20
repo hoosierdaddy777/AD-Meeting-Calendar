@@ -16,6 +16,7 @@ services:
           action: rebuild
     depends_on:
       - mongodb
+      - postgresql
 
   mongodb:
     image: mongo:latest
@@ -27,7 +28,7 @@ services:
     ports:
       - "23567:27017"
     volumes:
-      - php-backend-mongodb:/data/db/mongodb
+      - php-backend-mongodb:/data/db
 
   postgresql:
     image: postgres:15
@@ -40,10 +41,8 @@ services:
     ports:
       - "5555:5432"
     volumes:
-      - php-backend-postgresql:/data/db/postgresql
+      - php-backend-postgresql:/var/lib/postgresql/data
 
 volumes:
   php-backend-mongodb:
-    driver: local
   php-backend-postgresql:
-    driver: local
