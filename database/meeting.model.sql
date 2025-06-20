@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS meetings (
     title VARCHAR(100) NOT NULL,
     agenda TEXT,
     scheduled_at TIMESTAMP NOT NULL,
-    created_by INTEGER REFERENCES users(id)
+    created_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(100) NOT NULL UNIQUE,
     full_name VARCHAR(100),
     role VARCHAR(50),
-    group_id INTEGER REFERENCES groups(id),
+    group_id INTEGER REFERENCES groups(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
